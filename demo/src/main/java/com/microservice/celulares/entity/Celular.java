@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import jakarta.persistence.Transient;
+
 import javax.persistence.Column;
 
 
@@ -24,6 +27,9 @@ public class Celular implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Transient 
+    private Integer port;
 
     private String name;
     private String marca;
@@ -62,5 +68,13 @@ public class Celular implements Serializable{
 
     public void setCreateAt(Date createAt){
         this.createAt = createAt;
+    }
+
+    public void setPort(Integer port){
+        this.port = port;
+    }
+
+    public Integer getPort(){
+        return port;
     }
 }
